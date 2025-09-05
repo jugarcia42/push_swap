@@ -1,9 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jugarcia <jugarcia@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/27 17:25:31 by jugarcia          #+#    #+#             */
+/*   Updated: 2025/09/05 16:43:29 by jugarcia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-/**
- * Une todos los argumentos pasados en argv en un único array de strings
- * (separando correctamente por espacios).
- */
 static char	**split_all_arguments(char **argv)
 {
 	int		i;
@@ -23,9 +31,8 @@ static char	**split_all_arguments(char **argv)
 		temp = ft_split(argv[i], ' ');
 		while (temp[j])
 		{
-			final_args[k] = ft_strdup(temp[j]);
+			final_args[k++] = ft_strdup(temp[j]);
 			free(temp[j++]);
-			k++;
 		}
 		free(temp);
 		i++;
@@ -34,9 +41,6 @@ static char	**split_all_arguments(char **argv)
 	return (final_args);
 }
 
-/**
- * Verifica si el argumento está vacío o contiene solo espacios.
- */
 static int	is_empty_argument(char *arg)
 {
 	int	i;
@@ -53,9 +57,6 @@ static int	is_empty_argument(char *arg)
 	return (1);
 }
 
-/**
- * Verifica si un argumento es un número válido.
- */
 static int	is_not_number(char *arg)
 {
 	int	i;
@@ -77,9 +78,6 @@ static int	is_not_number(char *arg)
 	return (1);
 }
 
-/**
- * Libera el array de strings generado al procesar los argumentos.
- */
 static void	free_arguments(char **args)
 {
 	int	i;
@@ -90,15 +88,6 @@ static void	free_arguments(char **args)
 	free(args);
 }
 
-/**
- * Parsea los argumentos del programa, valida que sean correctos
- * y los añade a la pila `stack_a`.
- *
- * Return:
- *  -1 → sin argumentos
- *   0 → correcto
- *   1 → error
- */
 int	parse_arguments(int argc, char **argv, t_stack **stack_a)
 {
 	int		i;
