@@ -1,9 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_stack.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jugarcia <jugarcia@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/27 17:25:08 by jugarcia          #+#    #+#             */
+/*   Updated: 2025/08/27 17:25:10 by jugarcia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-/**
- * Comprueba si en la pila existen números duplicados.
- * Devuelve 1 si encuentra duplicados, 0 si no.
- */
 static int	has_duplicates(t_stack **stack)
 {
 	t_stack	*current;
@@ -24,10 +32,6 @@ static int	has_duplicates(t_stack **stack)
 	return (0);
 }
 
-/**
- * Comprueba si la pila está ya ordenada de menor a mayor.
- * Devuelve 1 si está ordenada, 0 si no.
- */
 static int	is_sorted(t_stack **stack)
 {
 	t_stack	*temp;
@@ -42,9 +46,6 @@ static int	is_sorted(t_stack **stack)
 	return (1);
 }
 
-/**
- * Libera la memoria de toda la pila.
- */
 void	free_stack(t_stack **stack)
 {
 	t_stack	*temp;
@@ -57,12 +58,6 @@ void	free_stack(t_stack **stack)
 	}
 }
 
-/**
- * Valida el contenido de la pila:
- *  - Error si hay duplicados → retorna 1
- *  - Ya está ordenada        → retorna -1
- *  - Correcto                → retorna 0
- */
 int	parse_stack(t_stack *stack_a)
 {
 	if (has_duplicates(&stack_a))
