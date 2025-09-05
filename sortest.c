@@ -1,8 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sortest.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jugarcia <jugarcia@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/05 15:58:27 by jugarcia          #+#    #+#             */
+/*   Updated: 2025/09/05 15:58:51 by jugarcia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-/**
- * Ordena una pila de 3 elementos.
- */
 void	sort_three(t_stack **stack_a)
 {
 	int	first;
@@ -28,9 +37,6 @@ void	sort_three(t_stack **stack_a)
 	}
 }
 
-/**
- * Busca la posición del número más pequeño en la pila.
- */
 static int	get_position_of_smallest(t_stack *stack)
 {
 	int	smallest;
@@ -53,9 +59,6 @@ static int	get_position_of_smallest(t_stack *stack)
 	return (position);
 }
 
-/**
- * Ordena una pila de 4 elementos usando la de apoyo (stack_b).
- */
 void	sort_four(t_stack **stack_a, t_stack **stack_b)
 {
 	int	smallest_position;
@@ -73,9 +76,6 @@ void	sort_four(t_stack **stack_a, t_stack **stack_b)
 	pa(stack_a, stack_b);
 }
 
-/**
- * Ordena una pila de 5 elementos usando la de apoyo (stack_b).
- */
 void	sort_five(t_stack **stack_a, t_stack **stack_b)
 {
 	int	smallest_position;
@@ -96,9 +96,6 @@ void	sort_five(t_stack **stack_a, t_stack **stack_b)
 	pa(stack_a, stack_b);
 }
 
-/**
- * Ordena una pila de 6 elementos usando la de apoyo (stack_b).
- */
 void	sort_six(t_stack **stack_a, t_stack **stack_b)
 {
 	int	smallest_position;
