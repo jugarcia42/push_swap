@@ -1,61 +1,104 @@
 # Push Swap
 
-## Descripción
+## About
 
-Push Swap es un proyecto de algoritmia cuyo objetivo es ordenar una pila de números utilizando el menor número posible de operaciones.
+Push Swap is a sorting algorithm project from the 42 School curriculum. The goal is to sort a stack of integers using a limited set of predefined operations while generating the smallest possible sequence of instructions.
 
-El programa recibe una lista de enteros como argumentos y debe generar una secuencia de instrucciones que ordene los números en orden ascendente usando únicamente dos pilas (`a` y `b`) y un conjunto limitado de operaciones.
+The project focuses on algorithm optimization, data structures, complexity analysis, and problem-solving. Instead of directly sorting the data, the challenge is to determine the most efficient sequence of operations that transforms an unsorted stack into a sorted one.
 
-## Operaciones permitidas
+## The Challenge
+
+You are given a stack of integers called **stack A** and an empty **stack B**. Using only a restricted set of operations, you must sort all numbers in ascending order in stack A.
+
+The objective is not only to sort the numbers but also to minimize the total number of operations performed.
+
+## Allowed Operations
 
 ### Swap
 
-- `sa` : intercambia los dos primeros elementos de la pila A.
-- `sb` : intercambia los dos primeros elementos de la pila B.
-- `ss` : ejecuta `sa` y `sb` al mismo tiempo.
+```text
+sa  - Swap the first two elements of stack A
+sb  - Swap the first two elements of stack B
+ss  - Execute sa and sb simultaneously
+```
 
 ### Push
 
-- `pa` : mueve el primer elemento de B a A.
-- `pb` : mueve el primer elemento de A a B.
+```text
+pa  - Push the first element of stack B to stack A
+pb  - Push the first element of stack A to stack B
+```
 
 ### Rotate
 
-- `ra` : desplaza todos los elementos de A una posición hacia arriba.
-- `rb` : desplaza todos los elementos de B una posición hacia arriba.
-- `rr` : ejecuta `ra` y `rb` simultáneamente.
+```text
+ra  - Shift all elements of stack A up by one
+rb  - Shift all elements of stack B up by one
+rr  - Execute ra and rb simultaneously
+```
 
 ### Reverse Rotate
 
-- `rra` : desplaza todos los elementos de A una posición hacia abajo.
-- `rrb` : desplaza todos los elementos de B una posición hacia abajo.
-- `rrr` : ejecuta `rra` y `rrb` simultáneamente.
+```text
+rra - Shift all elements of stack A down by one
+rrb - Shift all elements of stack B down by one
+rrr - Execute rra and rrb simultaneously
+```
 
-## Conceptos trabajados
+## Features
 
-- Algoritmos de ordenación
-- Estructuras de datos
-- Listas enlazadas
-- Optimización
-- Complejidad temporal
-- Gestión de memoria
-- Parsing y validación de datos
+- Input validation and error handling.
+- Detection of already sorted stacks.
+- Efficient sorting strategies for small and large datasets.
+- Optimized operation generation.
+- Memory leak prevention.
+- Robust argument parsing.
 
-## Compilación
+## Usage
 
-Para compilar el proyecto:
+Compile the project:
 
 ```bash
 make
 ```
 
-Esto generará el ejecutable:
+Run the program:
 
 ```bash
-push_swap
+./push_swap 2 1 3 6 5 8
 ```
 
-### Reglas disponibles
+Example output:
+
+```text
+sa
+ra
+pb
+ra
+pa
+```
+
+The output represents the sequence of operations required to sort the stack.
+
+## Project Structure
+
+```text
+push_swap/
+├── includes/
+│   └── push_swap.h
+├── src/
+│   ├── parsing/
+│   ├── operations/
+│   ├── sorting/
+│   ├── algorithms/
+│   └── utils/
+├── Makefile
+└── README.md
+```
+
+## Compilation
+
+Available Makefile rules:
 
 ```bash
 make
@@ -64,39 +107,64 @@ make fclean
 make re
 ```
 
-## Uso
+The compilation generates:
 
 ```bash
-./push_swap [números]
+./push_swap
 ```
 
-### Ejemplo
+## Sorting Strategy
 
-```bash
-./push_swap 4 67 3 87 23
-```
+Depending on the number of elements, different approaches can be used:
 
-El programa mostrará por pantalla la secuencia de operaciones necesaria para ordenar los números.
+### Small Stacks
 
-## Gestión de errores
+For small datasets (typically 2–5 numbers), dedicated sorting routines are used to achieve the minimum number of operations.
 
-El programa muestra:
+### Large Stacks
 
-```bash
+For larger datasets, more advanced strategies may be implemented, such as:
+
+- Radix Sort
+- Chunk-Based Sorting
+- Cost-Based Insertion
+- Hybrid Optimization Techniques
+
+The goal is always to reduce the total number of instructions while maintaining efficient execution.
+
+## Error Handling
+
+The program must display:
+
+```text
 Error
 ```
 
-cuando:
+when:
 
-- Existen argumentos no numéricos.
-- Hay números duplicados.
-- Se produce un overflow o underflow de enteros.
-- El formato de entrada es inválido.
+- Non-numeric arguments are provided.
+- Duplicate numbers are detected.
+- Integer overflow occurs.
+- Invalid input formatting is found.
 
-## Objetivo
+## Learning Objectives
 
-Además de ordenar correctamente los datos, el objetivo principal es minimizar el número de operaciones realizadas para obtener la mejor puntuación posible.
+Through this project, I developed skills in:
 
-## Autor
+- Algorithm design and optimization.
+- Complexity analysis.
+- Data structures using linked lists or arrays.
+- Stack manipulation.
+- Input validation.
+- Memory management.
+- Performance-oriented programming.
 
-Proyecto realizado como parte del programa de formación de 42.
+## Technologies
+
+- C
+- Makefile
+- Custom Data Structures
+- Algorithm Optimization
+
+
+Developed as part of the 42 School curriculum.
